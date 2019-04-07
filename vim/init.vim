@@ -1,5 +1,6 @@
 set number
-
+set encoding=utf-8
+colorscheme jellybeans
 
 "dein Scripts-----------------------------
 if &compatible
