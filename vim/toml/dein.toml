@@ -1,0 +1,27 @@
+# パッケージ管理
+[[plugins]] 
+repo = 'Shougo/dein.vim'
+
+# ファイル探索
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+# ファイルエクスプローラー
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+# 自動保管システム
+# [[plugins]]
+# repo = 'Shougo/neocomplete.vim'
+# hook_add = 'let g:neocomplete#enable_at_startup = 1'
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+
+# Gitクライアントプラグイン
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# gitterの表示
+[[plugins]]
+repo = 'airblade/vim-gitgutter'

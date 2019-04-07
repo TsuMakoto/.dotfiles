@@ -1,0 +1,11 @@
+# python用自動保管システム
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+
+# linter 実行プラグイン
+[[plugins]]
+repo = 'w0rp/ale'
+on_ft = ['python']
+hook_source = '''
+	source ~/.dotfiles/vim/toml/plugins/ale.vim
+'''
