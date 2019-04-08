@@ -25,3 +25,10 @@ repo = 'tpope/vim-fugitive'
 # gitterの表示
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+# かっこ補完
+[[plugins]]
+repo = 'cohama/lexima.vim'
+hook_add = 'g:lexima_enable_basic_rules = 1'
+
+

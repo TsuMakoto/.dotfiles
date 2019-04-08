@@ -1,15 +1,24 @@
 set number
 set encoding=utf-8
+set expandtab
+set tabstop=4
+set shiftwidth=4
 colorscheme jellybeans
+
+" キーマッピング
+" 括弧補完
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
-let $HOME = '/home/vagrant'
 let s:config_dir = '~/.dotfiles/vim'
-let $CONDA_ROOT = '/home/vagrant/.pyenv/versions/anaconda3-5.3.1/envs'
+let $CONDA_ROOT = $HOME . '/.pyenv/versions/anaconda3-5.3.1/envs'
 
 let g:python_host_prog = $CONDA_ROOT . '/nvim2/bin/python'
 let g:python3_host_prog = $CONDA_ROOT . '/nvim3/bin/python'
