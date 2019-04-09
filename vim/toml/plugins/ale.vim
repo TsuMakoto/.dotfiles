@@ -23,7 +23,29 @@ let g:ale_keep_list_window_open = 0
 " 有効にするlinter
 let g:ale_linters = {
 \	'python' : ['flake8'],
+\   'html' : [],
+\   'css' : ['stylelint'],
+\   'javascript' : ['eslint']
+\   
 \}
+
+" ソースコード自動整形
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'python': ['autopep8', 'isort'],
+\   'markdown': [
+\   {
+\       buffer, 
+\       lines -> 
+\       {
+\           'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 
+\           'read_temporary_file': 1
+\       }
+\   }
+\ ],
+\ }
+" 保存がかけられるたびに自動整形
+let g:ale_fix_on_save = 1
 
 " ALEプレフィックス
 nmap [ale] <Nop>

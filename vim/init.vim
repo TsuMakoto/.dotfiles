@@ -4,6 +4,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 colorscheme jellybeans
+set clipboard+=unnamed
 
 " キーマッピング
 " 括弧補完
@@ -11,6 +12,13 @@ inoremap { {}<Left>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap ( ()<ESC>i
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" htmlタグ補完
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+augroup END
 
 "dein Scripts-----------------------------
 if &compatible
