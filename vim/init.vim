@@ -27,7 +27,7 @@ endfunction
 let $CACHE = expand('~/.cache')
 
 if !isdirectory(expand($CACHE))
-  call mkdir(expand($CACHE), 'p')
+ call mkdir(expand($CACHE), 'p')
 endif
 
 let $CONDA_ROOT = $HOME . '/.pyenv/versions/anaconda3-5.3.1/envs'

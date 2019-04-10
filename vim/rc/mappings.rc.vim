@@ -1,17 +1,23 @@
 " Release keymappings for plug-in.
 nnoremap ; :
 xnoremap : <Nop>
+nnoremap : <CR>
 nnoremap m <Nop>
 xnoremap m <Nop>
 nnoremap , <Nop>
 xnoremap , <Nop>
 nnoremap q <Nop>
-
+nnoremap j gj
+nnoremap k gk
+inoremap <C-b> <C-f>
+inoremap <C-f> <C-b>
 
 " Edit init.vim
 nnoremap <Space>ev :tabnew ~/.dotfiles/vim/init.vim<CR>
 " Reload init.vim
 nnoremap <Space>rv :source ~/.dotfiles/vim/init.vim<CR>
+" Open vim config-dir
+nnoremap <Space>rd :NERDTreeToggle ~/.dotfiles/vim<CR>
 
 " new tab
 nnoremap <Space>tn :tabnew<CR>
@@ -46,5 +52,14 @@ nnoremap L $
 
 " file record
 nnoremap <C-s> :w<CR>
-inoremap <C-s> <C-c>:w<CR>i<Right>
+inoremap <C-s> <C-c>:w<CR>
 
+" visual mode
+nnoremap <Space>l vl
+nnoremap <Space>h vh
+nnoremap <Space>j vj
+nnoremap <Space>k vk
+nnoremap <Space><Right> vl
+nnoremap <Space><Left> vh
+nnoremap <Space><Down> vj
+nnoremap <Space><Up> vk
