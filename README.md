@@ -54,7 +54,7 @@ pyenv activate nvim3
 pip install neovim
 ```
 # How to use?
-Linked '[git clone directory]/.dotfiles/vim/init.vim' to '~/.config/nvim/init.vim'.
+Please linked '[git clone directory]/.dotfiles/vim/init.vim' to '~/.config/nvim/init.vim'.
 ```
 ln -s [git clone directory]/.dotfiles/vim/init.vim ~/.config/nvim/init.vim
 ```
