@@ -5,6 +5,9 @@ repo = 'Shougo/dein.vim'
 # ファイル探索
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+hook_source = '''
+    source ~/.dotfiles/vim/toml/plugins/denite.vim
+'''
 
 # ファイルエクスプローラー
 [[plugins]]
@@ -30,3 +33,36 @@ repo = 'airblade/vim-gitgutter'
 [[plugins]]
 repo = 'cohama/lexima.vim'
 hook_add = 'let g:lexima_enable_basic_rules = 1'
+
+# airline
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = "let g:airline_powerline_fonts = 1"
+hook_add = "set laststatus=2"
+
+# indent 表示機能
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+# 検索機能
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+    map <Leader> <Plug>(easymotion-prefix)
+    let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+    " Jump to anywhere you want with minimal keystrokes, with just one key binding.
+    " `s{char}{label}`
+    " nmap s <Plug>(easymotion-overwin-f)
+    " or
+    " `s{char}{char}{label}`
+    " Need one more keystroke, but on average, it may be more comfortable.
+    nmap s <Plug>(easymotion-overwin-f2)
+
+    " Turn on case insensitive feature
+    let g:EasyMotion_smartcase = 1
+
+    " JK motions: Line motions
+    map <Leader>j <Plug>(easymotion-j)
+    map <Leader>k <Plug>(easymotion-k)
+''' 

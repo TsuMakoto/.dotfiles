@@ -26,6 +26,7 @@ let g:ale_linters = {
 \   'html' : [],
 \   'css' : ['stylelint'],
 \   'javascript' : ['eslint']
+\   'ruby' ; ['rubocop']
 \   
 \}
 

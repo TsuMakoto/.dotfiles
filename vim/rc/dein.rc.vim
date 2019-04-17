@@ -33,6 +33,7 @@ if dein#load_state('~/.cache/dein')
   " lazy load toml files
   call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
   call dein#load_toml(s:toml_dir . '/dein_py.toml', {'lazy': 1})
+  call dein#load_toml(s:toml_dir . '/dein_html.toml', {'lazy': 1})
 	
   " Required:
   call dein#end()

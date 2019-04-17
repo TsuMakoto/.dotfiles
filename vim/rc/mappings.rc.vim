@@ -1,7 +1,4 @@
 " Release keymappings for plug-in.
-nnoremap ; :
-xnoremap : <Nop>
-nnoremap : <CR>
 nnoremap m <Nop>
 xnoremap m <Nop>
 nnoremap , <Nop>
@@ -9,6 +6,7 @@ xnoremap , <Nop>
 nnoremap q <Nop>
 nnoremap j gj
 nnoremap k gk
+inoremap <C-l> <C-c>dli
 inoremap <C-b> <C-f>
 inoremap <C-f> <C-b>
 
@@ -48,18 +46,4 @@ nnoremap <C-m> <C-w>-
 
 " Skip move     
 nnoremap H ^
-nnoremap L $
-
-" file record
-nnoremap <C-s> :w<CR>
-inoremap <C-s> <C-c>:w<CR>
-
-" visual mode
-nnoremap <Space>l vl
-nnoremap <Space>h vh
-nnoremap <Space>j vj
-nnoremap <Space>k vk
-nnoremap <Space><Right> vl
-nnoremap <Space><Left> vh
-nnoremap <Space><Down> vj
-nnoremap <Space><Up> vk
+noremap L $

@@ -50,4 +50,4 @@ endif
 
 call s:source_rc('dein.rc.vim')
 call s:source_rc('mappings.rc.vim')
-
+call s:source_rc('surround.vim')
