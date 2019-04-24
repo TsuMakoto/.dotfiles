@@ -1,1 +1,1 @@
-nnoremap :def :Denite file/rec
+nnoremap <Space>def :Denite file/rec<CR>

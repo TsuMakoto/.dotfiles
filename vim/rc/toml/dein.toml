@@ -21,6 +21,12 @@ repo = 'scrooloose/nerdtree'
 repo = 'Shougo/deoplete.nvim'
 hook_add = 'let g:deoplete#enable_at_startup = 1'
 
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# hook_source = '''
+#     source ~/.dotfiles/vim/rc/toml/plugins/coc.nvim.vim
+# '''
+
 # Gitクライアントプラグイン
 [[plugins]]
 repo = 'tpope/vim-fugitive'
