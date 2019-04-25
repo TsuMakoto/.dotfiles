@@ -1,5 +1,5 @@
 # .dotfiles
-Version control of neovim script
+Version control of vim script for neovim.
 
 # required
 - works with the version of neovim 0.4.0.
