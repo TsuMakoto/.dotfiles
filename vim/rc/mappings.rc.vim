@@ -6,9 +6,9 @@ xnoremap , <Nop>
 nnoremap q <Nop>
 nnoremap j gj
 nnoremap k gk
-inoremap <C-l> <C-c>dli
-inoremap <C-b> <C-f>
-inoremap <C-f> <C-b>
+" inoremap <C-l> <C-c>dli
+" inoremap <C-b> <C-f>
+" inoremap <C-f> <C-b>
 
 " Edit init.vim
 nnoremap <Space>ev :tabnew ~/.dotfiles/vim/init.vim<CR>
@@ -22,21 +22,20 @@ nnoremap <Space>tn :tabnew<CR>
 
 " switch tab
 nnoremap <Tab> gt
-inoremap <C-t> <C-c>gt<CR>i
 nnoremap <S-Tab> gT
 for i in range(1, 9)
   execute 'nnoremap ' . i . '<Tab> ' . i . 'gt'
 endfor
 
 " switch window
-nnoremap wh <C-w>h
-nnoremap wj <C-w>j
-nnoremap wk <C-w>k
-nnoremap wl <C-w>l
-nnoremap wH <C-w>H
-nnoremap wJ <C-w>J
-nnoremap wK <C-w>K
-nnoremap wL <C-w>L
+" nnoremap wh <C-w>h
+" nnoremap wj <C-w>j
+" nnoremap wk <C-w>k
+" nnoremap wl <C-w>l
+" nnoremap wH <C-w>H
+" nnoremap wJ <C-w>J
+" nnoremap wK <C-w>K
+" nnoremap wL <C-w>L
 
 " resize tab
 nnoremap <C-a> <C-w><

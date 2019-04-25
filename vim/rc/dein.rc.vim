@@ -15,8 +15,8 @@ if dein#load_state('~/.cache/dein')
 
 
   " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
+"  call dein#add('Shougo/neosnippet.vim')
+"  call dein#add('Shougo/neosnippet-snippets')
  
   if !has('nvim')
     " for vim8
@@ -30,10 +30,10 @@ if dein#load_state('~/.cache/dein')
 
   " load toml files
   call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
-  " lazy load toml files
+"   " lazy load toml files
+  call dein#load_toml(s:toml_dir . '/dein_html.toml', {'lazy': 1})
   call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
   call dein#load_toml(s:toml_dir . '/dein_py.toml', {'lazy': 1})
-  call dein#load_toml(s:toml_dir . '/dein_html.toml', {'lazy': 1})
 	
   " Required:
   call dein#end()

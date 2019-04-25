@@ -7,5 +7,5 @@ repo = 'zchee/deoplete-jedi'
 repo = 'w0rp/ale'
 on_ft = ['python', 'html', 'css', 'javascript']
 hook_source = '''
-	source ~/.dotfiles/vim/toml/plugins/ale.vim
+	source ~/.dotfiles/vim/rc/toml/plugins/ale.vim
 '''

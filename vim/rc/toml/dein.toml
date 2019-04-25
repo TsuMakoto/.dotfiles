@@ -6,7 +6,7 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_source = '''
-    source ~/.dotfiles/vim/toml/plugins/denite.vim
+    source ~/.dotfiles/vim/rc/toml/plugins/denite.vim
 '''
 
 # ファイルエクスプローラー
