@@ -4,6 +4,8 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 colorscheme jellybeans
+" コメントの色がみにくいので設定
+hi Comment ctermfg=grey
 set clipboard+=unnamed
 
 " htmlタグ補完

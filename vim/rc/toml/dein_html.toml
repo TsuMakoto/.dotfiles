@@ -3,6 +3,7 @@
 repo = 'mattn/emmet-vim'
 hook_add = '''
   let g:user_emmet_leader_key='<C-E>'
-  let g:user_emmet_install_global = 0
-  autocmd FileType html,css EmmetInstall
 '''
+
+[[plugins]]
+repo = 'hokaccha/vim-html5validator'

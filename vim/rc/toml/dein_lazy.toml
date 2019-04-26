@@ -5,7 +5,7 @@ build = 'make'
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 depends = ['vimproc.vim']
-on_ft = ['python']
+on_ft = ['python' 'ruby']
 hook_add = '''
     " Running vimproc " Showing success is buffer and error is quickfix 
     let g:quickrun_config = {
@@ -28,3 +28,12 @@ hook_add = '''
     " Stop quickrun is [C-c] 
     nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 '''
+
+# linter 実行プラグイン
+[[plugins]]
+repo = 'w0rp/ale'
+on_ft = ['python', 'html', 'css', 'javascript', 'ruby']
+hook_source = '''
+	source ~/.dotfiles/vim/rc/toml/plugins/ale.vim
+'''
+
