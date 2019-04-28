@@ -30,11 +30,12 @@ if dein#load_state('~/.cache/dein')
 
   " load toml files
   call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
-"   " lazy load toml files
+  " lazy load toml files
   call dein#load_toml(s:toml_dir . '/dein_html.toml', {'lazy': 0})
+  call dein#load_toml(s:toml_dir . '/dein_julia.toml', {'lazy': 1})
   call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
   call dein#load_toml(s:toml_dir . '/dein_py.toml', {'lazy': 1})
-  call dein#load_toml(s:toml_dir . '/dein_ruby.toml', {'lazy': 1})
+  call dein#load_toml(s:toml_dir . '/dein_ruby.toml', {'lazy': 0})
 	
   " Required:
   call dein#end()

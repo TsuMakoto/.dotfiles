@@ -3,17 +3,19 @@ set encoding=utf-8
 set expandtab
 set tabstop=2
 set shiftwidth=2
-colorscheme jellybeans
-" コメントの色がみにくいので設定
-hi Comment ctermfg=grey
-set clipboard+=unnamed
+set clipboard=unnamed
 
-" htmlタグ補完
-" augroup MyXML
-"   autocmd!
-"   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-"   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-" augroup END
+" =============== 色の設定
+colorscheme jellybeans
+set cursorline
+autocmd ColorScheme * highlight CursorLine ctermbg=236
+autocmd ColorScheme * highlight Normal ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermbg=none
+autocmd ColorScheme * highlight NonText ctermbg=none
+autocmd ColorScheme * highlight Comment ctermfg=250
+autocmd ColorScheme * highlight Visual ctermbg=240
+autocmd ColorScheme * highlight Statement ctermfg=104
+" ===============
 
 let g:config_dir = '~/.dotfiles/vim'
 let g:rc_dir = g:config_dir . '/rc'

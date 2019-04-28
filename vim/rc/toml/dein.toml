@@ -14,9 +14,6 @@ hook_source = '''
 repo = 'scrooloose/nerdtree'
 
 # 自動保管システム
-# [[plugins]]
-# repo = 'Shougo/neocomplete.vim'
-# hook_add = 'let g:neocomplete#enable_at_startup = 1'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 hook_add = 'let g:deoplete#enable_at_startup = 1'
@@ -28,8 +25,8 @@ hook_add = 'let g:deoplete#enable_at_startup = 1'
 # '''
 
 # Gitクライアントプラグイン
-[[plugins]]
-repo = 'tpope/vim-fugitive'
+# [[plugins]]
+# repo = 'tpope/vim-fugitive'
 
 # gitterの表示
 [[plugins]]
@@ -72,3 +69,6 @@ hook_add = '''
     map <Leader>j <Plug>(easymotion-j)
     map <Leader>k <Plug>(easymotion-k)
 ''' 
+
+[[plugins]]
+repo = 'JuliaEditorSupport/julia-vim'
