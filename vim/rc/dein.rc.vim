@@ -34,7 +34,7 @@ if dein#load_state('~/.cache/dein')
   call dein#load_toml(s:toml_dir . '/dein_html.toml', {'lazy': 0})
   call dein#load_toml(s:toml_dir . '/dein_julia.toml', {'lazy': 1})
   call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
-  call dein#load_toml(s:toml_dir . '/dein_py.toml', {'lazy': 1})
+  call dein#load_toml(s:toml_dir . '/dein_py.toml', {'lazy': 0})
   call dein#load_toml(s:toml_dir . '/dein_ruby.toml', {'lazy': 0})
 	
   " Required:
