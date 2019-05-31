@@ -20,9 +20,9 @@ if dein#load_state('~/.cache/dein')
  
   if !has('nvim')
     " for vim8
-    set pyxversion=3
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
+    set pyxversion=3
   endif
 
   " set toml-path
@@ -30,12 +30,10 @@ if dein#load_state('~/.cache/dein')
 
   " load toml files
   call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
+  " プログラミング言語用toml load
+  call dein#load_toml(s:toml_dir . '/dein_lang.toml', {'lazy': 0})
   " lazy load toml files
-  call dein#load_toml(s:toml_dir . '/dein_html.toml', {'lazy': 0})
-  call dein#load_toml(s:toml_dir . '/dein_julia.toml', {'lazy': 1})
   call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
-  call dein#load_toml(s:toml_dir . '/dein_py.toml', {'lazy': 0})
-  call dein#load_toml(s:toml_dir . '/dein_ruby.toml', {'lazy': 0})
 	
   " Required:
   call dein#end()

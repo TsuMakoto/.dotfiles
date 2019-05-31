@@ -1,7 +1,7 @@
 " エラー行の表示マーカー
-let g:ale_sign_error = '>>'
+let g:ale_sign_error = '❌'
 " 警告行の表示マーカー
-let g:ale_sign_warning = 'ww'
+let g:ale_sign_warning = '🚨'
 " エラー行にカーソルを合わせた際に表示されるメッセージフォーマット
 let g:ale_echo_msg_format = '[%linter%] %s [%linter%]'
 " エラー行の列を常時表示
@@ -20,6 +20,9 @@ let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
 let g:ale_keep_list_window_open = 0
 
+" rubocopをbendleで使う
+let g:ale_ruby_rubocop_executable = 'bundle'
+
 " 有効にするlinter
 let g:ale_linters = {
 \	'python' : ['flake8'],
@@ -34,6 +37,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'python': ['autopep8', 'isort'],
+\   'ruby': ['rubocop']
 \   'markdown': [
 \   {
 \       buffer, 

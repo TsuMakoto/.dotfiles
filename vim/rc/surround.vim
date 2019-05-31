@@ -8,7 +8,7 @@ if exists("g:loaded_surround") || &cp || v:version < 700
 endif
 let g:loaded_surround = 1
 
-" Input functions {{{1
+" Input functions 
 
 function! s:getchar()
     let c = getchar()
@@ -55,9 +55,9 @@ function! s:redraw()
     return ""
 endfunction
 
-" }}}1
+" 
 
-" Wrapping functions {{{1
+" Wrapping functions 
 
 function! s:extractbefore(str)
     if a:str =~ '\r'
@@ -312,9 +312,9 @@ function! s:wrapreg(reg,char,removed,special)
     let new = s:wrap(orig,a:char,type,a:removed,a:special)
     call setreg(a:reg,new,type)
 endfunction
-" }}}1
+" 
 
-function! s:insert(...) " {{{1
+function! s:insert(...) " 
     " Optional argument causes the result to appear on 3 lines, not 1
     let linemode = a:0 ? a:1 : 0
     let char = s:inputreplacement()
@@ -355,15 +355,15 @@ function! s:insert(...) " {{{1
     let @@ = reg_save
     let &clipboard = cb_save
     return "\<Del>"
-endfunction " }}}1
+endfunction " 
 
-function! s:reindent() " {{{1
+function! s:reindent() " 
     if exists("b:surround_indent") ? b:surround_indent : (!exists("g:surround_indent") || g:surround_indent)
         silent norm! '[=']
     endif
-endfunction " }}}1
+endfunction " 
 
-function! s:dosurround(...) " {{{1
+function! s:dosurround(...) " 
     let scount = v:count1
     let char = (a:0 ? a:1 : s:inputtarget())
     let spc = ""
@@ -475,9 +475,9 @@ function! s:dosurround(...) " {{{1
     else
         silent! call repeat#set("\<Plug>C".(a:0 > 2 && a:3 ? "S" : "s")."urround".char.newchar.s:input,scount)
     endif
-endfunction " }}}1
+endfunction " 
 
-function! s:changesurround(...) " {{{1
+function! s:changesurround(...) " 
     let a = s:inputtarget()
     if a == ""
         return s:beep()
@@ -487,9 +487,9 @@ function! s:changesurround(...) " {{{1
         return s:beep()
     endif
     call s:dosurround(a,b,a:0 && a:1)
-endfunction " }}}1
+endfunction " 
 
-function! s:opfunc(type, ...) abort " {{{1
+function! s:opfunc(type, ...) abort " 
     if a:type ==# 'setup'
         let &opfunc = matchstr(expand('<sfile>'), '<SNR>\w\+$')
         return 'g@'
@@ -562,9 +562,9 @@ function! s:opfunc2(...) abort
         return 'g@'
     endif
     call s:opfunc(a:1, 1)
-endfunction " }}}1
+endfunction " 
 
-function! s:closematch(str) " {{{1
+function! s:closematch(str) " 
     " Close an open (, {, [, or < on the command line.
     let tail = matchstr(a:str,'.[^\[\](){}<>]*$')
     if tail =~ '^\[.\+'
@@ -578,7 +578,7 @@ function! s:closematch(str) " {{{1
     else
         return ""
     endif
-endfunction " }}}1
+endfunction " 
 
 nnoremap <silent> <Plug>SurroundRepeat .
 nnoremap <silent> <Plug>Dsurround  :<C-U>call <SID>dosurround(<SID>inputtarget())<CR>

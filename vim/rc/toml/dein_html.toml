@@ -1,9 +1,0 @@
-# html編集プラグイン
-[[plugins]]
-repo = 'mattn/emmet-vim'
-hook_add = '''
-  let g:user_emmet_leader_key='<C-E>'
-'''
-
-[[plugins]]
-repo = 'hokaccha/vim-html5validator'

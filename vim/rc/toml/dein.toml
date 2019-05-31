@@ -70,5 +70,3 @@ hook_add = '''
     map <Leader>k <Plug>(easymotion-k)
 ''' 
 
-[[plugins]]
-repo = 'JuliaEditorSupport/julia-vim'
