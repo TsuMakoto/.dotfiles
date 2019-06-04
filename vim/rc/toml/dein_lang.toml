@@ -1,21 +1,3 @@
-# +++++ ruby +++++ #
-# railsプラグイン
-[[plugins]]
-repo = 'tpope/vim-rails'
-# 補完
-[[plugins]]
-repo = 'takkii/totolot'
-# 補完のための辞書
-[[plugins]]
-repo = 'takkii/ruby-dictionary3'
-# +++++ ruby +++++ #
-
-# ++++++ python ++++++ #
-# 補完
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-# ++++++ python ++++++ #
-
 # +++++ coq +++++ #
 [[plugins]]
 repo = 'let-def/vimbufsync'
@@ -60,3 +42,7 @@ hook_add = '''
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 '''
 # +++++ Julia +++++ #
+
+# mathematica
+[[plugins]]
+repo = 'rsmenon/vim-mathematica'

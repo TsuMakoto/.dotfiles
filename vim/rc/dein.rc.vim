@@ -13,21 +13,23 @@ if dein#load_state('~/.cache/dein')
   " Required:
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-
-  " Add or remove your plugins here:
-"  call dein#add('Shougo/neosnippet.vim')
-"  call dein#add('Shougo/neosnippet-snippets')
- 
-  if !has('nvim')
-    " for vim8
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-    set pyxversion=3
-  endif
-
   " set toml-path
   let s:toml_dir = expand('~/.dotfiles/vim/rc/toml') 
+ 
+  if !has('nvim')
+    " nvimプラグイン用
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
 
+    " for vim8
+    " 補完
+    " call dein#add('Shougo/neosnippet-snippets')
+    " call dein#add('Shougo/neocomplete.vim')
+    " let g:neocomplete#enable_at_startup = 1
+  endif
+
+  " load deoplete
+  call dein#load_toml(s:toml_dir . '/dein_deoplete.toml', {'lazy': 0})
   " load toml files
   call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
   " プログラミング言語用toml load

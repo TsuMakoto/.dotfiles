@@ -13,11 +13,6 @@ hook_source = '''
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
-# 自動保管システム
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = 'let g:deoplete#enable_at_startup = 1'
-
 # [[plugins]]
 # repo = 'neoclide/coc.nvim'
 # hook_source = '''
