@@ -5,6 +5,7 @@ set tabstop=2
 set shiftwidth=2
 set clipboard=unnamed
 set foldmethod=marker
+autocmd BufWritePre * :%s/\s\+$//ge
 
 " =============== 色の設定 =============== 
 " =============== jellybeans =============== 

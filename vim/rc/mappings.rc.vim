@@ -31,3 +31,6 @@ noremap L $
 
 " denite 起動
 nmap <Space>df :Denite file/rec<CR>
+
+" terminal mode
+tnoremap <C-[> <C-\><C-n>
