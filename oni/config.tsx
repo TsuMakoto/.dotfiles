@@ -16,7 +16,7 @@ module.exports = {
     "commandline.mode": false,
     "editor.errors.slideOnForce": false,
     "editor.fontLigatures": false,
-    "editor.fontSize": "11px",
+    "editor.fontSize": "10px",
     "editor.fontWeight": "normal",
     "editor.linePadding": 1,
     "editor.quickInfo.enabled": false,
@@ -31,5 +31,8 @@ module.exports = {
     "ui.fontSmoothing": "auto",
     "explorer.persistDeletedFiles": false,
     "editor.backgroundOpacity": 0.9,
-    "editor.backgroundImageUrl": "~/.myData/pic/Pokémon.jpg"
+    "editor.backgroundImageUrl": "~/.myData/pic/Pokémon.jpg",
+    "terminal.shellCommand": true,
+    "experimental.markdownPreview.syntaxHighlights": false,
+    "editor.quickOpen.filterStrategy": "fuse",
 }
