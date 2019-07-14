@@ -15,12 +15,20 @@ hook_source = '''
 '''
 # +++++ coq +++++ #
 
+# +++++ rails +++++ #
+[[plugins]]
+repo = 'tpope/vim-rails'
+# +++++ rails +++++ #
+
 # +++++ html +++++  #
 [[plugins]]
 repo = 'mattn/emmet-vim'
 hook_add = '''
   let g:user_emmet_leader_key='<C-E>'
 '''
+
+[[plugins]]
+repo = 'jvanja/vim-bootstrap4-snippets'
 
 [[plugins]]
 repo = 'hokaccha/vim-html5validator'

@@ -1,27 +1,20 @@
 # パッケージ管理
-[[plugins]] 
+[[plugins]]
 repo = 'Shougo/dein.vim'
 
 # ファイル探索
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+# hook_source = '''
+#     source ~/.dotfiles/vim/rc/toml/plugins/denite.vim
+# '''
+
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_source = '''
-    source ~/.dotfiles/vim/rc/toml/plugins/denite.vim
-'''
+repo = 'ctrlpvim/ctrlp.vim'
 
 # ファイルエクスプローラー
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-
-# [[plugins]]
-# repo = 'neoclide/coc.nvim'
-# hook_source = '''
-#     source ~/.dotfiles/vim/rc/toml/plugins/coc.nvim.vim
-# '''
-
-# Gitクライアントプラグイン
-# [[plugins]]
-# repo = 'tpope/vim-fugitive'
 
 # gitterの表示
 [[plugins]]
@@ -41,6 +34,23 @@ hook_add = "set laststatus=2"
 # indent 表示機能
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+
+# send terminal
+[[plugins]]
+repo = 'kkpmw/vim-sendtowindow'
+
+# japanese
+# [[plugins]]
+# repo = 'tyru/eskk.vim'
+# hook_add = '''
+#   let g:eskk#directory = "~/.eskk"
+#   let g:eskk#large_dictionary = { 'path': "~/.eskk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
+#   let g:eskk#enable_completion = 1
+#   let g:eskk#server = {
+#   \   'host': 'localhost',
+#   \   'port': 55100,
+#   \}
+# '''
 
 # 検索機能
 [[plugins]]
@@ -63,5 +73,5 @@ hook_add = '''
     " JK motions: Line motions
     map <Leader>j <Plug>(easymotion-j)
     map <Leader>k <Plug>(easymotion-k)
-''' 
+'''
 

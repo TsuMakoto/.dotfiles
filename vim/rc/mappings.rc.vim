@@ -20,17 +20,14 @@ for i in range(1, 9)
 endfor
 
 " resize tab
-nnoremap <C-a> <C-w><
-nnoremap <C-s> <C-w>>
-nnoremap <C-p> <C-w>+
-nnoremap <C-m> <C-w>-
+nnoremap <C-w>; <C-w>+
 
-" Skip move     
+" Skip move
 nnoremap H ^
 noremap L $
 
 " denite 起動
-nmap <Space>df :Denite file/rec<CR>
+" nmap <Space>df :Denite file/rec<CR>
 
 " terminal mode
 tnoremap <C-[> <C-\><C-n>

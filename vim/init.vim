@@ -1,4 +1,4 @@
-set number
+" set number
 set encoding=utf-8
 set expandtab
 set tabstop=2
@@ -7,8 +7,8 @@ set clipboard=unnamed
 set foldmethod=marker
 autocmd BufWritePre * :%s/\s\+$//ge
 
-" =============== 色の設定 =============== 
-" =============== jellybeans =============== 
+" =============== 色の設定 ===============
+" =============== jellybeans ===============
 " colorscheme jellybeans
 " set cursorline
 " autocmd ColorScheme * highlight CursorLine ctermbg=236
@@ -18,13 +18,13 @@ autocmd BufWritePre * :%s/\s\+$//ge
 " autocmd ColorScheme * highlight Comment ctermfg=250
 " autocmd ColorScheme * highlight Visual ctermbg=240
 " autocmd ColorScheme * highlight Statement ctermfg=104
-" =============== tender =============== 
+" =============== tender ===============
 colorscheme tender
 syntax enable
 let g:airline_theme = 'tender'
 autocmd ColorScheme * highlight Comment guifg=#a09f9f
 autocmd ColorScheme * highlight Visual guibg=#666666
-" =============== 色の設定 =============== 
+" =============== 色の設定 ===============
 
 let g:config_dir = '~/.dotfiles/vim'
 let g:rc_dir = g:config_dir . '/rc'
