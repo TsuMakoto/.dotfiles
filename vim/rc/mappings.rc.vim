@@ -25,6 +25,8 @@ nnoremap <C-w>; <C-w>+
 " Skip move
 nnoremap H ^
 noremap L $
+xnoremap H ^
+xnoremap L $
 
 " denite 起動
 " nmap <Space>df :Denite file/rec<CR>

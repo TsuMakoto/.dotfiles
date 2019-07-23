@@ -2,13 +2,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# ファイル探索
-# [[plugins]]
-# repo = 'Shougo/denite.nvim'
-# hook_source = '''
-#     source ~/.dotfiles/vim/rc/toml/plugins/denite.vim
-# '''
-
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 
@@ -40,17 +33,15 @@ repo = 'Yggdroot/indentLine'
 repo = 'kkpmw/vim-sendtowindow'
 
 # japanese
-# [[plugins]]
-# repo = 'tyru/eskk.vim'
-# hook_add = '''
-#   let g:eskk#directory = "~/.eskk"
-#   let g:eskk#large_dictionary = { 'path': "~/.eskk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
-#   let g:eskk#enable_completion = 1
-#   let g:eskk#server = {
-#   \   'host': 'localhost',
-#   \   'port': 55100,
-#   \}
-# '''
+[[plugins]]
+repo = 'tyru/eskk.vim'
+hook_add = '''
+  let g:eskk#directory = "~/.eskk"
+  let g:eskk#dictionary = { 'path': "~/.skk-jisyo", 'sorted': 0, 'encoding': 'utf-8', }
+  let g:eskk#large_dictionary = { 'path': "~/.eskk/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp', }
+  let g:eskk#enable_completion = 1
+  let g:eskk#server = {'host': 'localhost', 'port': 55100,}
+'''
 
 # 検索機能
 [[plugins]]

@@ -44,9 +44,9 @@ if !isdirectory(expand($CACHE))
  call mkdir(expand($CACHE), 'p')
 endif
 
-let $CONDA_ROOT = $HOME . '/.pyenv/versions/anaconda3-5.3.1/envs'
-let g:python_host_prog = $CONDA_ROOT . '/nvim2/bin/python'
-let g:python3_host_prog = $CONDA_ROOT . '/nvim3/bin/python'
+let $PYENV_ROOT = $HOME . '/.pyenv/versions'
+let g:python_host_prog = $PYENV_ROOT . '/nvim2/bin/python'
+let g:python3_host_prog = $PYENV_ROOT . '/nvim3/bin/python'
 let g:ruby_host_prog = $HOME . '/.rbenv/shims/ruby'
 
 " load dein.
