@@ -1,7 +1,10 @@
 # .dotfiles
-Version control of vim script for neovim.
+Version control of vim script for neovim, zshrc.
 
-# required
+# Install
+git clone https://github.com/TsuMakoto/.dotfiles.git ~/.dotfiles
+
+# Required
 - works with the version of neovim 0.4.0.
 - pyenv
   - anaconda3-5.3.1
@@ -54,6 +57,7 @@ pyenv activate nvim3
 pip install neovim
 ```
 # How to use?
+sh init.sh
 Please linked '[git clone directory]/.dotfiles/vim/init.vim' to '~/.config/nvim/init.vim'.
 ```
 ln -s [git clone directory]/.dotfiles/vim/init.vim ~/.config/nvim/init.vim
