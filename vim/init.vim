@@ -24,6 +24,9 @@ syntax enable
 let g:airline_theme = 'tender'
 autocmd ColorScheme * highlight Comment guifg=#a09f9f
 autocmd ColorScheme * highlight Visual guibg=#666666
+" =============== dracula ==============
+" syntax on
+" colorscheme dracula
 " =============== 色の設定 ===============
 
 let g:config_dir = '~/.dotfiles/vim'
@@ -45,8 +48,8 @@ if !isdirectory(expand($CACHE))
 endif
 
 let $PYENV_ROOT = $HOME . '/.pyenv/versions'
-let g:python_host_prog = $PYENV_ROOT . '/nvim2/bin/python'
-let g:python3_host_prog = $PYENV_ROOT . '/nvim3/bin/python'
+let g:python_host_prog = $PYENV_ROOT . '/2.7.16/bin/python'
+let g:python3_host_prog = $PYENV_ROOT . '/3.7.3/bin/python'
 let g:ruby_host_prog = $HOME . '/.rbenv/shims/ruby'
 
 " load dein.
