@@ -32,11 +32,11 @@ brew install neovim
 ### Install Python
 # Install pyenv or virtualenv.
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
-echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.profile
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile
-source ~/.profile
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+source ~/.bashrc
 
 # Install anaconda3-5.3.1
 pyenv install anaconda3-5.3.1
@@ -57,6 +57,7 @@ pip install neovim
 Please linked '[git clone directory]/.dotfiles/vim/init.vim' to '~/.config/nvim/init.vim'.
 ```
 ln -s [git clone directory]/.dotfiles/vim/init.vim ~/.config/nvim/init.vim
+ln -s [git clone directory]/.dotfiles/vim/colors ~/.config/nvim/colors
 ```
 ## Use onivim/oni
 if you used onivim/oni instead of nvim, it is recommended linked to '[git clone directory]/.dotfiles/oni/config.tsx' to '~/.config/oni/config.tsx'.
