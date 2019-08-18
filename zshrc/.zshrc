@@ -1,18 +1,30 @@
 export LANG=ja_JP.UTF-8
 
 # +++++++++++++++++++++ original command alias ++++++++++++++++++ #
-alias be='bundle exec'
-alias bi='bundle install --path=vendor/bundle -j4'
+# for brew
+if command -v brew 1>/dev/null 2>&1; then
+  alias vimup='brew upgrade --fetch-HEAD vim'
+  alias ctags="`brew --prefix`/bin/ctags"
+fi
+# for bundle
+if command -v bundle 1>/dev/null 2>&1; then
+  alias be='bundle exec'
+  alias bi='bundle install --path=vendor/bundle -j4'
+  alias rails='be rails'
+fi
+
+# for neovim
+if command -v nvim 1>/dev/null 2>&1; then
+  alias n='nvim'
+  alias n-='nvim `fzf`'
+fi
+
+# common
 alias rz='source ~/.zshrc'
 alias todolist="find . -type f -print | xargs grep 'TODO'"
-alias vimup='brew upgrade --fetch-HEAD vim'
-alias rails='be rails'
-alias n='nvim'
-alias n-='nvim `fzf`'
 alias cd-='cd ~'
 alias cd..='cd ../'
 alias ls='ls -G'
-alias ctags="`brew --prefix`/bin/ctags"
 alias xserve='cd ~/ && ssh s250323@s250323.xsrv.jp -p 10022'
 # +++++++++++++++++++++ original command alias ++++++++++++++++++ #
 
@@ -70,7 +82,9 @@ fi
 # ++++++++++++++++++++++ pyenv ++++++++++++++++++++++++ #
 
 # ++++++++++++++++++++++ rbenv ++++++++++++++++++++++++ #
-eval "$(rbenv init -)"
+if command -v rbenv 1>/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
 # ++++++++++++++++++++++ rbenv ++++++++++++++++++++++++ #
 
 # +++++++++++++++++++++ setting editor for psql +++++++++++++++++++++ #
