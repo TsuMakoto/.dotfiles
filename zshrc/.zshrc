@@ -19,6 +19,18 @@ if command -v nvim 1>/dev/null 2>&1; then
   alias n-='nvim `fzf`'
 fi
 
+# for docker
+if command -v docker 1>/dev/null 2>&1; then
+  # all image remove
+  alias drmi='docker images -aq | xargs docker rmi'
+  # all container remove
+  alias drmc='docker ps -aq | xargs docker rm'
+  alias dimls='docker image ls'
+  alias dcps='docker container ps'
+  alias dcpsa='dcps -a'
+fi
+
+
 # common
 alias rz='source ~/.zshrc'
 alias todolist="find . -type f -print | xargs grep 'TODO'"
