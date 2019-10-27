@@ -108,6 +108,7 @@ alias cd..='cd ../'
 alias cd../='cd ../'
 alias ls='ls -G'
 alias xserve='cd ~/ && ssh s250323@s250323.xsrv.jp -p 10022'
+alias dotfiles='n ~/.dotfiles/'
 # +++++++++++++++++++++ original command alias ++++++++++++++++++ #
 
 # +++++++++++++++++++++ setting editor for psql +++++++++++++++++++++ #
