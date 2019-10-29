@@ -8,6 +8,7 @@ tap 'mscharley/homebrew'
 tap 'neovim/neovim'
 
 brew 'git'
+brew 'docker'
 brew 'git-secrets'
 brew 'hub'
 brew 'zsh'
@@ -25,6 +26,8 @@ brew 'circleci'
 brew 'imagemagick'
 brew 'ffmpeg'
 brew 'tmux'
+brew 'go'
+brew 'node'
 
 # casks
 cask 'brooklyn'

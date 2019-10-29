@@ -1,5 +1,6 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=nvim
+PATH=${PATH}:~/go/pkg
 
 # ++++++++++++++++++++++ history ++++++++++++++++++++++++++ #
 # 履歴ファイルの保存先

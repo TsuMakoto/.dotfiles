@@ -12,3 +12,12 @@ ln -s ~/.dotfiles/zshrc/.zshrc ~/.zshrc
 
 # ctags
 ln -s ~/.dotfiles/.ctags ~/.ctags
+
+# brew
+brew bundle
+
+# skicka
+go get github.com/google/skicka
+cd ~/go && go build -o ~/go/pkg/skicka
+~/go/pkg/skica -no-browser-auth ls
+~/go/pkg/skica download .dotfiles/.skk-jisyo ~/.dotfiles/.skk-jisyo
