@@ -18,6 +18,6 @@ brew bundle
 
 # skicka
 go get github.com/google/skicka
-cd ~/go && go build -o ~/go/pkg/skicka
-~/go/pkg/skica -no-browser-auth ls
-~/go/pkg/skicka download .dotfiles/.skk-jisyo ~/.dotfiles/.skk-jisyo
+cd ~/go && go build -o ~/go/bin/skicka
+~/go/bin/skica -no-browser-auth ls
+~/go/bin/skicka download .dotfiles/.skk-jisyo ~/.dotfiles/.skk-jisyo
