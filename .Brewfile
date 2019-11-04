@@ -43,6 +43,7 @@ cask 'font-awesome-terminal-fonts'
 cask 'kindle'
 cask 'ngrok'
 cask 'vagrant'
+cask 'docker'
 
 cask 'dolphin' # game cube emu
 cask 'visualboyadvance-m' # game boy advance emu

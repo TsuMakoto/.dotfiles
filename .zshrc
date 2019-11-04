@@ -1,7 +1,8 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=nvim
-
+export PATH="/usr/local/sbin:$PATH"
 bindkey -e
+alias ssh='kitty +kitten ssh'
 
 # ++++++++++++++++++++++ history ++++++++++++++++++++++++++ #
 # 履歴ファイルの保存先
@@ -27,6 +28,10 @@ export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 zplug "zsh-users/zsh-syntax-highlighting"
 # history search
 zplug "zsh-users/zsh-history-substring-search"
+# 補完
+zplug "zsh-users/zsh-autosuggestions"
+# docker
+zplug "zsh-users/zsh-docker"
 # fzf
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
@@ -38,8 +43,23 @@ zplug "b4b4r07/enhancd", use:init.sh
 zplug "b4b4r07/zsh-gomi", as:command, use:bin
 # alias for git
 zplug "plugins/git",   from:oh-my-zsh
-# Load theme file
-zplug 'dracula/zsh', as:theme
+# zsh design
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+# emoji
+zplug "stedolan/jq", from:gh-r, as:command, on:b4b4r07/emoji-cli
+zplug "mrowa44/emojify", as:command
+# 標準出力をいいかんじにしてくれるやつ
+zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
+# incremental search
+# zplug 'hchbaw/auto-fu.zsh'
+# source $HOME/.zplug/repos/hchbaw/auto-fu.zsh/auto-fu.zsh
+# function zle-line-init () {
+#   auto-fu-init
+# }
+# zle -N zle-line-init
+# zstyle ':completion:*' completer _oldlist _complete
+# # 「-azfu-」を表示させないための記述
+# zstyle ':auto-fu:var' postdisplay $''
 
 # install zplug
 if ! zplug check; then
@@ -59,13 +79,23 @@ fi
 # ++++++++++++++++++++++ pyenv ++++++++++++++++++++++++ #
 
 # ++++++++++++++++++++++ rbenv ++++++++++++++++++++++++ #
+export RBENV_ROOT="$HOME/.rbenv"
+export PATH="$RBENV_ROOT/bin:$PATH"
 if command -v rbenv 1>/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
 # ++++++++++++++++++++++ rbenv ++++++++++++++++++++++++ #
 
+# ++++++++++++++++++++++ nvm ++++++++++++++++++++++++++ #
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# ++++++++++++++++++++++ nvm ++++++++++++++++++++++++++ #
+
 # ++++++++++++++++++++++ hub ++++++++++++++++++++++++++ #
-function git(){hub "$@"}
+if command -v hub 1>/dev/null 2>&1; then
+  function git(){hub "$@"}
+fi
 # ++++++++++++++++++++++ hub ++++++++++++++++++++++++++ #
 
 # +++++++++++++++++++++ original command alias ++++++++++++++++++ #
@@ -101,6 +131,7 @@ if command -v docker 1>/dev/null 2>&1; then
   alias dimls='docker image ls'
   alias dcps='docker container ps'
   alias dcpsa='dcps -a'
+  alias drirmsd='docker run -it --rm --mount type=bind,src=`pwd`,dst=/app'
 fi
 
 # common
@@ -121,3 +152,7 @@ export PSQL_EDITOR="/usr/local/bin/nvim"
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # source ~/enhancd/init.sh
 # source ~/.dotfiles/.zshrc.antigen
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
