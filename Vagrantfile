@@ -51,6 +51,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "./projects", "/home/vagrant/projects"
+  config.vm.synced_folder "/tmp/.X11-unix", "/tmp/.X11-unix"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -64,6 +65,10 @@ Vagrant.configure("2") do |config|
     vb.name = "Main"
     vb.cpus = 2
     vb.memory = "8192"
+    vb.customize ['modifyvm', :id,
+      "--clipboard", "bidirectional", # クリップボードの共有
+      "--draganddrop", "bidirectional", # ドラッグアンドドロップ可能に
+    ]
   end
   #
   # View the documentation for the provider you are using for more
@@ -93,7 +98,38 @@ Vagrant.configure("2") do |config|
                         liblzma-dev \
                         python-openssl \
                         git \
-                        zsh
+                        zsh \
+                        xsel \
+                        postgresql-client \
+                        pgcli
+                        autoconf \
+                        bison \
+                        build-essential \
+                        libyaml-dev \
+                        libreadline6-dev \
+                        libgdbm5 \
+                        libgdbm-dev
+                        gcc-6 \
+                        g++-6 \
+                        libssl1.0-dev \
+                        libpq-dev \
+                        libmagickwand-dev \
+                        apt-transport-https \
+                        ca-certificates \
+                        software-properties-common
+
+    # docker
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+    sudo apt update
+    sudo apt install -y docker-ce
+    sudo gpasswd -a vagrant docker
+    sudo chmod 666 /var/run/docker.sock
+    sudo curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+    sudo chmod 0755 /usr/local/bin/docker-compose
 
     # zplug
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh

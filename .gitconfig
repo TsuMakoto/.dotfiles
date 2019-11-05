@@ -2,7 +2,7 @@
 	name = TsuMakoto
 	email = tsukamoto@fusic.co.jp
 [core]
-  excludesfile = /Users/tsukamoto/.gitignore_global
+  excludesfile = ~/.gitignore_global
 	editor = nvim
 [secrets]
 	providers = git secrets --aws-provider
@@ -12,4 +12,4 @@
 	allowed = AKIAIOSFODNN7EXAMPLE
 	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [init]
-	templateDir = /Users/tsukamoto/.git-templates/git-secrets
+	templatedir = ~/.git-templates/git-secrets
