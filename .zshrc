@@ -1,8 +1,9 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=nvim
-export PATH="$HOME/go/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/go/bin:$HOME/bin:/usr/local/sbin:$PATH"
 bindkey -e
 alias ssh='kitty +kitten ssh'
+source ./script/dockercontroll.sh
 
 # ++++++++++++++++++++++ history ++++++++++++++++++++++++++ #
 # 履歴ファイルの保存先
