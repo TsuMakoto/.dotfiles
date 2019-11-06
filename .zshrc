@@ -1,6 +1,6 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=nvim
-export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/go/bin:/usr/local/sbin:$PATH"
 bindkey -e
 alias ssh='kitty +kitten ssh'
 

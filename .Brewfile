@@ -28,6 +28,7 @@ brew 'ffmpeg'
 brew 'tmux'
 brew 'go'
 brew 'node'
+brew 'awscli'
 
 # casks
 cask 'brooklyn'

@@ -1,0 +1,25 @@
+Host sign-simulation.net
+  Hostname sign-simulation.net
+  User fusic
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/sign_simulation
+
+Host tiboard.minpaku
+  Hostname tiboard.minpaku.ac.jp
+  User tiboard
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/tiboard
+  Port 13716
+
+Host docker-fusic
+  Hostname 160.16.198.119
+  User fusic
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/docker-fusic.pem
+
+Host my
+  Hostname 127.0.0.1
+  User vagrant
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/vagrant.pub
+  Port 2222
