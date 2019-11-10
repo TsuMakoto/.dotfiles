@@ -1,9 +1,17 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=nvim
-export PATH="$HOME/go/bin:$HOME/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/bin:/usr/local/sbin:$PATH"
 bindkey -e
-alias ssh='kitty +kitten ssh'
-source ./script/dockercontroll.sh
+if command -v kitty 1>/dev/null 2>&1; then
+  alias ssh='kitty +kitten ssh'
+fi
+source ~/script/dockercontroll.sh
+
+if [ -x /usr/bin/Xvfb ] && [ -x /usr/bin/VBoxClient ] && [ ! -f /tmp/.X0-lock ]; then
+  Xvfb -screen 0 320x240x8 > /dev/null 2>&1 &
+  sleep 0.5
+  DISPLAY=:0 VBoxClient --clipboard
+fi
 
 # ++++++++++++++++++++++ history ++++++++++++++++++++++++++ #
 # 履歴ファイルの保存先
@@ -70,7 +78,16 @@ fi
 # load plugins
 zplug load
 # +++++++++++++++++++++ zplug ++++++++++++++++++++++++++ #
-#
+
+# ++++++++++++++++++++++ goenv ++++++++++++++++++++++++ #
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+if command -v goenv 1>/dev/null 2>&1; then
+  eval "$(goenv init -)"
+  export PATH="$GOPATH/bin:$PATH"
+fi
+# ++++++++++++++++++++++ goenv ++++++++++++++++++++++++ #
+
 # ++++++++++++++++++++++ pyenv ++++++++++++++++++++++++ #
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
