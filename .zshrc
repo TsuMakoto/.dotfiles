@@ -1,12 +1,11 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=nvim
 export PATH="$HOME/bin:/usr/local/sbin:$PATH"
+export LANGENV="$HOME/.env"
 bindkey -e
 if command -v kitty 1>/dev/null 2>&1; then
   alias ssh='kitty +kitten ssh'
 fi
-source ~/script/dockercontroll.sh
-
 if [ -x /usr/bin/Xvfb ] && [ -x /usr/bin/VBoxClient ] && [ ! -f /tmp/.X0-lock ]; then
   Xvfb -screen 0 320x240x8 > /dev/null 2>&1 &
   sleep 0.5
@@ -80,7 +79,7 @@ zplug load
 # +++++++++++++++++++++ zplug ++++++++++++++++++++++++++ #
 
 # ++++++++++++++++++++++ goenv ++++++++++++++++++++++++ #
-export GOENV_ROOT="$HOME/.goenv"
+export GOENV_ROOT="$LANGENV/goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 if command -v goenv 1>/dev/null 2>&1; then
   eval "$(goenv init -)"
@@ -89,7 +88,7 @@ fi
 # ++++++++++++++++++++++ goenv ++++++++++++++++++++++++ #
 
 # ++++++++++++++++++++++ pyenv ++++++++++++++++++++++++ #
-export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT="$LANGENV/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -97,7 +96,7 @@ fi
 # ++++++++++++++++++++++ pyenv ++++++++++++++++++++++++ #
 
 # ++++++++++++++++++++++ rbenv ++++++++++++++++++++++++ #
-export RBENV_ROOT="$HOME/.rbenv"
+export RBENV_ROOT="$LANGENV/rbenv"
 export PATH="$RBENV_ROOT/bin:$PATH"
 if command -v rbenv 1>/dev/null 2>&1; then
   eval "$(rbenv init -)"
@@ -105,7 +104,7 @@ fi
 # ++++++++++++++++++++++ rbenv ++++++++++++++++++++++++ #
 
 # ++++++++++++++++++++++ nvm ++++++++++++++++++++++++++ #
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$LANGENV/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # ++++++++++++++++++++++ nvm ++++++++++++++++++++++++++ #
@@ -150,6 +149,8 @@ if command -v docker 1>/dev/null 2>&1; then
   alias dcps='docker container ps'
   alias dcpsa='dcps -a'
   alias drirmsd='docker run -it --rm --mount type=bind,src=`pwd`,dst=/app'
+  source ~/script/dockercontroll.sh
+
 fi
 
 # common
