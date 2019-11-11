@@ -26,7 +26,11 @@ Vagrant.configure("2") do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # NOTE: This will enable public access to the opened port
   # config.vm.network :forwarded_port, guest: 80, host: 80      # Web
-  (3000..4000).map { |port| config.vm.network "forwarded_port", guest: port, host: port }
+  (3000..3100).map { |port| config.vm.network "forwarded_port", guest: port, host: port }
+  # selenium
+  config.vm.network "forwarded_port", guest: 4444, host: 4444
+  # clipboard
+  config.vm.network "forwarded_port", guest: 1234, host: 1234
 
   config.vm.network "forwarded_port", guest: 8000, host: 8000
   # config.vm.network "forwarded_port", guest: 8080, host: 8080
@@ -52,7 +56,6 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "./projects", "/home/vagrant/projects"
-  config.vm.synced_folder "/tmp/.X11-unix", "/tmp/.X11-unix"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
