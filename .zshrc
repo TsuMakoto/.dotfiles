@@ -104,9 +104,9 @@ fi
 # ++++++++++++++++++++++ rbenv ++++++++++++++++++++++++ #
 
 # ++++++++++++++++++++++ nvm ++++++++++++++++++++++++++ #
-export NVM_DIR="$LANGENV/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_ROOT="$LANGENV/nvm"
+[ -s "$NVM_ROOT/nvm.sh" ] && \. "$NVM_ROOT/nvm.sh"  # This loads nvm
+[ -s "$NVM_ROOT/bash_completion" ] && \. "$NVM_ROOT/bash_completion"  # This loads nvm bash_completion
 # ++++++++++++++++++++++ nvm ++++++++++++++++++++++++++ #
 
 # ++++++++++++++++++++++ hub ++++++++++++++++++++++++++ #
