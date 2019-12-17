@@ -1,15 +1,13 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=nvim
-export PATH="$HOME/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
 export LANGENV="$HOME/.env"
+export PGHOSTADDR=172.30.0.1
+export PGUSER=postgres
+export PGPASSWORD=postgres
 bindkey -e
 if command -v kitty 1>/dev/null 2>&1; then
   alias ssh='kitty +kitten ssh'
-fi
-if [ -x /usr/bin/Xvfb ] && [ -x /usr/bin/VBoxClient ] && [ ! -f /tmp/.X0-lock ]; then
-  Xvfb -screen 0 320x240x8 > /dev/null 2>&1 &
-  sleep 0.5
-  DISPLAY=:0 VBoxClient --clipboard
 fi
 
 # ++++++++++++++++++++++ history ++++++++++++++++++++++++++ #
@@ -133,7 +131,7 @@ fi
 # for neovim
 if command -v nvim 1>/dev/null 2>&1; then
   alias n='nvim'
-  alias n-='nvim `fzf`'
+  alias nn='nvim `fzf`'
 fi
 
 # for docker
@@ -149,8 +147,15 @@ if command -v docker 1>/dev/null 2>&1; then
   alias dcps='docker container ps'
   alias dcpsa='dcps -a'
   alias drirmsd='docker run -it --rm --mount type=bind,src=`pwd`,dst=/app'
-  source ~/script/dockercontroll.sh
+  source ~/myenviroments/script/dockercontroll.sh
 
+fi
+
+# for circleci
+if command -v circleci 1>/dev/null 2>&1; then
+  alias ccc='circleci'
+  alias cccc='ccc config'
+  alias ccccv='cccc validate'
 fi
 
 # common
@@ -159,9 +164,14 @@ alias todolist="find . -type f -print | xargs grep 'TODO'"
 alias cd-='cd ~'
 alias cd..='cd ../'
 alias cd../='cd ../'
-alias ls='ls -G'
+if [ "$(uname)" = 'Darwin' ]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
 alias xserve='cd ~/ && ssh s250323@s250323.xsrv.jp -p 10022'
 alias dotfiles='n ~/.dotfiles/'
+alias ff='ff --preview'
 # +++++++++++++++++++++ original command alias ++++++++++++++++++ #
 
 # +++++++++++++++++++++ setting editor for psql +++++++++++++++++++++ #
@@ -175,3 +185,5 @@ export PSQL_EDITOR="/usr/local/bin/nvim"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias julia='dce ml julia'
