@@ -2,7 +2,7 @@ export LANG=ja_JP.UTF-8
 export EDITOR=nvim
 export PATH="$HOME/.local/bin:/usr/local/sbin:$PATH"
 export LANGENV="$HOME/.env"
-export PGHOSTADDR=172.30.0.1
+export PGHOSTADDR=172.22.0.2
 export PGUSER=postgres
 export PGPASSWORD=postgres
 bindkey -e
@@ -132,6 +132,7 @@ fi
 if command -v nvim 1>/dev/null 2>&1; then
   alias n='nvim'
   alias nn='nvim `fzf`'
+  alias nvimdiff='nvim -d '
 fi
 
 # for docker
@@ -149,13 +150,16 @@ if command -v docker 1>/dev/null 2>&1; then
   alias drirmsd='docker run -it --rm --mount type=bind,src=`pwd`,dst=/app'
   source ~/myenviroments/script/dockercontroll.sh
 
+  alias pman='docker run --rm -p 3000:3000 liyasthomas/postwoman:latest npm run start -- --host=0.0.0.0'
 fi
 
 # for circleci
 if command -v circleci 1>/dev/null 2>&1; then
-  alias ccc='circleci'
-  alias cccc='ccc config'
-  alias ccccv='cccc validate'
+  alias cc='circleci'
+  alias ccc='cc config'
+  alias ccv='ccc validate'
+  alias ccl='cc local'
+  alias cce='ccl execute'
 fi
 
 # common
@@ -170,7 +174,7 @@ else
   alias ls='ls --color=auto'
 fi
 alias xserve='cd ~/ && ssh s250323@s250323.xsrv.jp -p 10022'
-alias dotfiles='n ~/.dotfiles/'
+alias dot='n ~/.dotfiles/'
 alias ff='ff --preview'
 # +++++++++++++++++++++ original command alias ++++++++++++++++++ #
 
@@ -186,4 +190,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias julia='dce ml julia'
+function find_grep() {
+  find $1 -type f -print | xargs grep $2
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# os情報表示
+arckey
