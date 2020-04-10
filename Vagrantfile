@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
   # config.vm.box = "base"
   config.vm.define "bionic64"
   config.vm.box = "ubuntu/bionic64"
+  config.vm.box_version = "20200115.0.0"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -33,6 +34,8 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 1234, host: 1234
 
   config.vm.network "forwarded_port", guest: 8000, host: 8000
+  # minio
+  config.vm.network "forwarded_port", guest: 9000, host: 9000
   # config.vm.network "forwarded_port", guest: 8080, host: 8080
   # config.vm.network :forwarded_port, guest: 3306, host: 3306  # MySQL
   # config.vm.network :forwarded_port, guest: 5432, host: 5432  # Postgres
@@ -55,7 +58,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "./projects", "/home/vagrant/projects"
+  # config.vm.synced_folder "./projects", "/home/vagrant/projects"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -67,7 +70,7 @@ Vagrant.configure("2") do |config|
   #
     # Customize the amount of memory on the VM:
     vb.name = "Main"
-    vb.cpus = 2
+    vb.cpus = 4
     vb.memory = "8192"
     vb.customize ['modifyvm', :id,
       "--clipboard", "bidirectional", # クリップボードの共有
@@ -128,7 +131,7 @@ Vagrant.configure("2") do |config|
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) \
     stable"
-    sudo apt update
+    sudo apt update -y
     sudo apt install -y docker-ce
     sudo gpasswd -a vagrant docker
     sudo chmod 666 /var/run/docker.sock
@@ -138,12 +141,12 @@ Vagrant.configure("2") do |config|
     # zplug
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
     # pyenv
-    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+    git clone https://github.com/pyenv/pyenv.git ~/.env/pyenv
     # rbenv
-    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-    git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+    git clone https://github.com/rbenv/rbenv.git ~/.env/rbenv
+    git clone https://github.com/sstephenson/ruby-build.git ~/.env/rbenv/plugins/ruby-build
     # nvm
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | zsh
+    git clone https://github.com/nvm-sh/nvm.git ~/.env/nvm
     # git-secrets
     git git clone https://github.com/awslabs/git-secrets.git ~/.git-secrets
     cd .git-secrets && sudo make install

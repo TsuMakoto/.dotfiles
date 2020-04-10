@@ -194,6 +194,15 @@ function find_grep() {
   find $1 -type f -print | xargs grep $2
 }
 
+function scp2vai() {
+  scp -i ~/.ssh/vagrant.pub -P 2222 $1 vagrant@127.0.0.1:$2
+}
+
+function scp2host() {
+  scp -i ~/.ssh/vagrant.pub -P 2222 vagrant@127.0.0.1:$1 $2
+}
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # os情報表示
