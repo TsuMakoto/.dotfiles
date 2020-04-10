@@ -206,4 +206,4 @@ function scp2host() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # os情報表示
-arckey
+archey
