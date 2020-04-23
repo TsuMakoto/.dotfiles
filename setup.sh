@@ -10,6 +10,8 @@ ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global
 # zshrc
 ln -s ~/.dotfiles/zshrc/.zshrc ~/.zshrc
 
+ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
+
 # ctags
 ln -s ~/.dotfiles/.ctags ~/.ctags
 
