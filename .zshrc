@@ -10,6 +10,19 @@ if command -v kitty 1>/dev/null 2>&1; then
   alias ssh='kitty +kitten ssh'
 fi
 
+# imagemagick
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
+# export PERL_CPANM_OPT="--local-lib=~/.env/perl/perl5"
+# export PATH=$PERL_CPANM_OPT/bin:$PATH;
+# export PERL5LIB=$PERL_CPANM_OPT/lib/perl5:$PERL5LIB;
+#
+# PATH="${PERL_CPANM_OPT}/bin${PATH:+:${PATH}}"; export PATH;
+# PERL5LIB="${PERL_CPANM_OPT}/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+# PERL_LOCAL_LIB_ROOT="${PERL_CPANM_OPT}${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+# PERL_MB_OPT="--install_base \"${PERL_CPANM_OPT}\""; export PERL_MB_OPT;
+# PERL_MM_OPT="INSTALL_BASE=${PERL_CPANM_OPT}"; export PERL_MM_OPT;
+
 # ++++++++++++++++++++++ history ++++++++++++++++++++++++++ #
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
@@ -25,8 +38,6 @@ setopt EXTENDED_HISTORY
 # source ~/.zshrc.antigen
 # zplug
 source ~/.zplug/init.zsh
-# imagemagick
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 # ++++++++++++++++++++++ history ++++++++++++++++++++++++++ #
 
 # +++++++++++++++++++++ zplug ++++++++++++++++++++++++++ #
@@ -107,6 +118,79 @@ export NVM_ROOT="$LANGENV/nvm"
 [ -s "$NVM_ROOT/bash_completion" ] && \. "$NVM_ROOT/bash_completion"  # This loads nvm bash_completion
 # ++++++++++++++++++++++ nvm ++++++++++++++++++++++++++ #
 
+# ++++++++++++++++++++++ julia ++++++++++++++++++++++++ #
+export JULIA_ROOT="$LANGENV/julia"
+export PATH="$JULIA_ROOT/.bin:$PATH"
+function jlenv() {
+  local -A opthash
+  zparseopts -D -M -A opthash -- \
+    v -version=v \
+    h -help=h \
+    l -list=l \
+    i: -install:=i \
+    rm: -remove:=rm \
+    s: -switch:=s
+
+
+  if [[ -n "${opthash[(i)-h]}" ]]; then
+    # --helpが指定された場合
+    echo 'jlenv help!'
+    echo 'Usage: jlenv [option] args'
+    echo "*************************************************************************************"
+    echo '* (1) jlenv -v(--version):             Using julia version                          *'
+    echo '* (2) jlenv -l(--list):                Show the list of installable julia versions  *'
+    echo '* (3) jlenv -i(--install) [version]:   Install julia binary with [version]          *'
+    echo '* (4) jlenv -s(--switch) [version]:    Switch julia version with [version]          *'
+    echo '* (5) jlenv -rm(--remove) [version]:   Remove julia binary with [version]           *'
+    echo "*************************************************************************************"
+    return
+  fi
+
+  if [[ -n "${opthash[(i)-v]}" ]]; then
+    echo 'installed versions'
+    echo ''
+    for v in $(ls ~/.env/julia)
+    do
+      echo "  - $v"
+    done
+    echo ''
+    echo current $(julia --version)
+    return
+  fi
+
+  if [[ -n "${opthash[(i)-l]}" ]]; then
+    curl -s "https://api.github.com/repos/JuliaLang/julia/tags?per_page=100"  | jq '.[]'.name
+    return
+  fi
+
+  if [[ -n "${opthash[(i)-i]}" ]]; then
+    version=${opthash[-i]}
+
+    cd $JULIA_ROOT && \
+      git clone git://github.com/JuliaLang/julia.git $version && \
+      cd $version && \
+      git checkout $version && \
+      make && \
+      ln -s $JULIA_ROOT/.bin/julia $JULIA_ROOT/$version/julia
+    return
+  fi
+
+  if [[ -n "${opthash[(i)-rm]}" ]]; then
+    rm -rf $JULIA_ROOT/${opthash[-rm]}
+    return
+  fi
+
+  if [[ -n "${opthash[(i)-s]}" ]]; then
+    rm $JULIA_ROOT/.bin/julia
+    ln -s $JULIA_ROOT/${opthash[-s]}/julia $JULIA_ROOT/.bin/julia
+    return
+  fi
+
+  echo 'jlenv help!'
+  echo 'Usage: jlenv [option] filename'
+}
+# ++++++++++++++++++++++ rbenv ++++++++++++++++++++++++ #
+
 # ++++++++++++++++++++++ hub ++++++++++++++++++++++++++ #
 if command -v hub 1>/dev/null 2>&1; then
   function git(){hub "$@"}
@@ -130,8 +214,9 @@ fi
 
 # for neovim
 if command -v nvim 1>/dev/null 2>&1; then
-  alias n='nvim'
-  alias nn='nvim `fzf`'
+  alias _vim="vim"
+  alias vim='nvim'
+  alias vimf='nvim `fzf`'
   alias nvimdiff='nvim -d '
 fi
 
@@ -139,7 +224,8 @@ fi
 if command -v docker 1>/dev/null 2>&1; then
   alias d='docker'
   alias dc='docker-compose'
-  alias dce='dc exec'
+  alias dce='dc exec --user 1000'
+  alias dcse='dc exec'
   # all image remove
   alias drmi='docker images -aq | xargs docker rmi'
   # all container remove
@@ -147,10 +233,16 @@ if command -v docker 1>/dev/null 2>&1; then
   alias dimls='docker image ls'
   alias dcps='docker container ps'
   alias dcpsa='dcps -a'
-  alias drirmsd='docker run -it --rm --mount type=bind,src=`pwd`,dst=/app'
+  alias drun='docker run -it --rm --mount type=bind,src=`pwd`,dst=/app'
   source ~/myenviroments/script/dockercontroll.sh
 
   alias pman='docker run --rm -p 3000:3000 liyasthomas/postwoman:latest npm run start -- --host=0.0.0.0'
+fi
+
+# tmux
+if command -v tmux 1>/dev/null 2>&1; then
+  alias tmuxa='tmux a -t'
+  alias tmuxn='tmux new -s'
 fi
 
 # for circleci
@@ -168,14 +260,36 @@ alias todolist="find . -type f -print | xargs grep 'TODO'"
 alias cd-='cd ~'
 alias cd..='cd ../'
 alias cd../='cd ../'
+alias ll='ls -l'
+alias lal='ls -al'
 if [ "$(uname)" = 'Darwin' ]; then
   alias ls='ls -G'
 else
   alias ls='ls --color=auto'
 fi
 alias xserve='cd ~/ && ssh s250323@s250323.xsrv.jp -p 10022'
-alias dot='n ~/.dotfiles/'
+alias dot='nvim ~/.dotfiles/'
 alias ff='ff --preview'
+if command -v lazygit 1>/dev/null 2>&1; then
+  alias lgit='lazygit'
+fi
+if command -v lazydocker 1>/dev/null 2>&1; then
+  alias ldoc='lazydocker'
+fi
+function own() {
+  sudo chown vagrant $1
+  sudo chgrp vagrant $1
+  # sudo chmod vagrant $1
+}
+function mov2gif() {
+  ffmpeg -i $1 -r 24 $2
+}
+function get() {
+  url=$1
+  header=$2
+  params=$3
+  curl -X GET -H header $url?$params
+}
 # +++++++++++++++++++++ original command alias ++++++++++++++++++ #
 
 # +++++++++++++++++++++ setting editor for psql +++++++++++++++++++++ #
@@ -207,3 +321,4 @@ function scp2host() {
 
 # os情報表示
 archey
+export PATH="$HOME/.env/tfenv/bin:$PATH"

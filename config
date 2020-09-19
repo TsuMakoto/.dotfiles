@@ -23,3 +23,15 @@ Host my
   IdentitiesOnly yes
   IdentityFile ~/.ssh/vagrant.pub
   Port 2222
+
+Host staging.web01.sgdenki.com
+  Hostname 54.95.191.237
+  User ec2-user
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/sgsim-stg-190927.pem
+
+Host web01.sgdenki.com
+  Hostname 18.182.2.190
+  User ec2-user
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/sgsim-prd-190927.pem

@@ -13,6 +13,8 @@
 	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [init]
 	templatedir = ~/.git-templates/git-secrets
+[push]
+  default = current
 [merge]
   tool = nvimdiff
 [mergetool]
