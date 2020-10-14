@@ -13,6 +13,8 @@ fi
 # imagemagick
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
+KEYTIMEOUT=1
+
 # export PERL_CPANM_OPT="--local-lib=~/.env/perl/perl5"
 # export PATH=$PERL_CPANM_OPT/bin:$PATH;
 # export PERL5LIB=$PERL_CPANM_OPT/lib/perl5:$PERL5LIB;
@@ -114,6 +116,7 @@ fi
 
 # ++++++++++++++++++++++ nvm ++++++++++++++++++++++++++ #
 export NVM_ROOT="$LANGENV/nvm"
+export NVM_DIR=$NVM_ROOT
 [ -s "$NVM_ROOT/nvm.sh" ] && \. "$NVM_ROOT/nvm.sh"  # This loads nvm
 [ -s "$NVM_ROOT/bash_completion" ] && \. "$NVM_ROOT/bash_completion"  # This loads nvm bash_completion
 # ++++++++++++++++++++++ nvm ++++++++++++++++++++++++++ #
@@ -260,8 +263,9 @@ alias todolist="find . -type f -print | xargs grep 'TODO'"
 alias cd-='cd ~'
 alias cd..='cd ../'
 alias cd../='cd ../'
-alias ll='ls -l'
-alias lal='ls -al'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 if [ "$(uname)" = 'Darwin' ]; then
   alias ls='ls -G'
 else
@@ -299,10 +303,6 @@ export PSQL_EDITOR="/usr/local/bin/nvim"
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # source ~/enhancd/init.sh
 # source ~/.dotfiles/.zshrc.antigen
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 function find_grep() {
   find $1 -type f -print | xargs grep $2
