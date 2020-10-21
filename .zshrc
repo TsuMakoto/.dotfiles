@@ -294,6 +294,8 @@ function get() {
   params=$3
   curl -X GET -H header $url?$params
 }
+alias vagrant-ssh='ssh -R localhost:8733:localhost:8733  -i ~/.ssh/vagrant.pub -p 2222 vagrant@localhost'
+alias clip="nc localhost 8733"
 # +++++++++++++++++++++ original command alias ++++++++++++++++++ #
 
 # +++++++++++++++++++++ setting editor for psql +++++++++++++++++++++ #
@@ -320,5 +322,5 @@ function scp2host() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # os情報表示
-archey
+screenfetch
 export PATH="$HOME/.env/tfenv/bin:$PATH"
